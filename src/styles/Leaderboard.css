@@ -1,0 +1,48 @@
+/* Leaderboard.css */
+.leaderboard-container {
+    margin: 20px auto; /* Center the container horizontally */
+    padding: 10px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Reduce the size of the leaderboard */
+    text-align: center; /* Center content inside the container */
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    color: #d1e7dd !important; /* Ensure text color is light */
+}
+
+.leaderboard th {
+    background-color: #b58d2b;
+    color: white;
+}
+
+.leaderboard tr {
+    color: #000 !important; /* Ensure text color is black for all rows */
+}
+
+.highlight-current-user {
+    font-weight: bold;
+    background-color: #d1e7dd;
+    color: #000 !important; /* Ensure highlighted text is black */
+}
+
+.highlight-reset {
+    background-color: red;
+    color: white !important; /* Ensure reset text is white */
+}
+
+.leaderboard-heading {
+    color: #f0a500;
+    margin-bottom: 20px; /* Add space below heading */
+}

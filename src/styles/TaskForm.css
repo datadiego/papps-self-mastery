@@ -1,0 +1,92 @@
+/* Task Form Styles */
+.task-form {
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    color: white; /* Ensuring text color is white */
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+.form-group{
+    background-color: #000;
+}
+
+.widths{
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: auto;
+    width: 85%;
+    text-align: center;
+    height: 40px;
+    border-radius: 10px;
+}
+.task-form table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.task-form td, .task-form th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.task-form input, .task-form label {
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #b58d2b;
+}
+
+.questions {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.question-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px #0000001a;
+    padding: 20px;
+}
+
+.question-box label {
+    color: #000;
+    
+    font-weight: 700;
+    margin-bottom: 10px;
+    
+}
+
+.radio-group {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-content: center;
+    margin: auto;
+    max-width: 20%;
+    
+}
+
+.radio-group label {
+    
+    color: #000;
+    display: flex;
+    
+}
+
+.radio-group input {
+    margin-right: 5px;
+    align-items: center;
+    
+}

@@ -1,0 +1,55 @@
+/* General Styles */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+/* App Container */
+.app-container {
+  text-align: center;
+}
+
+/* Header */
+.app-header {
+  margin-bottom: 20px;
+}
+
+.app-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+  background-color: #000;
+  border: none;
+  color: #f0a500;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Button Styles */
+.answer-questions-button {
+  background-color: #b58d2b;
+  border: none;
+  border-radius: 25px;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  font-size: 1.5em;
+  margin: 20px auto;
+  padding: 20px 40px;
+  width: 80%;
+}
+
+.answer-questions-button:hover {
+  background-color: #d4af37;
+}
