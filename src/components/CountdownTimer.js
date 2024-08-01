@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/CountdownTimer.css';
-import timer from '../assets/timer.png'; // Adjust the path to your image
+// import timer from '../assets/timer.png'; // Adjust the path to your image
 
 const CountdownTimer = ({ stopTimerForUser, onDayEnd }) => {
     const calculateTimeLeft = () => {
@@ -36,20 +36,20 @@ const CountdownTimer = ({ stopTimerForUser, onDayEnd }) => {
         }
     }, [timeLeft, stopTimerForUser, onDayEnd]);
 
-    return (<div >
-    <div className='image'><img src={timer} alt="Countdown Timer" className="timer-image" /></div>
-        <div className="countdown-timer">
-            
-            {Object.keys(timeLeft).length > 0 ? (
-                <div className="timer">
-                    <span>{timeLeft.hours}h</span> : <span>{timeLeft.minutes}m</span> : <span>{timeLeft.seconds}s</span>
-                </div>
-            ) : (
-                <div className="timer">
-                    <span>00h</span> : <span>00m</span> : <span>00s</span>
-                </div>
-            )}
-        </div>
+    return (
+        <div>
+            {/* <div className='image'><img src={timer} alt="Countdown Timer" className="timer-image" /></div> */}
+            <div className="countdown-timer">
+                {Object.keys(timeLeft).length > 0 ? (
+                    <div className="timer">
+                        <span>{timeLeft.hours}h</span> : <span>{timeLeft.minutes}m</span> : <span>{timeLeft.seconds}s</span>
+                    </div>
+                ) : (
+                    <div className="timer">
+                        <span>00h</span> : <span>00m</span> : <span>00s</span>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
