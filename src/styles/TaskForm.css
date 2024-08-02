@@ -9,6 +9,10 @@
     padding: 20px;
 }
 
+.form-group {
+    background-color: #000;
+}
+
 .widths {
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -27,15 +31,13 @@
     text-align: center;
 }
 
-.task-form td,
-.task-form th {
+.task-form td, .task-form th {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-.task-form input,
-.task-form label {
+.task-form input, .task-form label {
     color: #000;
 }
 
@@ -85,24 +87,22 @@
     align-items: center;
 }
 
-/* Ensuring the buttons have the same width as the leaderboard */
-.answer-questions-button,
+/* Ensuring the answer-questions-button class from TaskForm.css applies here */
 .gold-button {
+    width: 100%;
+    max-width: 600px;
+    font-weight: bold;
     background-color: #b58d2b;
+    color: white;
+    padding: 10px;
     border: none;
-    border-radius: 25px;
-    color: #000;
+    border-radius: 5px;
     cursor: pointer;
-    display: block;
-    font-size: 1.5em;
-    margin: 20px auto;
-    padding: 20px 40px;
-    width: calc(100% - 40px); /* Same width as leaderboard */
-    max-width: 600px; /* Ensuring it doesn't exceed the leaderboard width */
-    font-weight: bold; /* Ensure both buttons have bold font */
 }
 
-.answer-questions-button:hover,
-.gold-button:hover {
-    background-color: #d4af37;
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 10px; /* Add some padding to avoid content touching the edges */
 }

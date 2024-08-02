@@ -13,35 +13,37 @@ const Leaderboard = ({ leaderboard }) => {
     const data = leaderboard && leaderboard.length ? leaderboard : defaultData;
 
     return (
-        <div className="leaderboard-container">
-            <header className="app-header">
-                <h1 className="app-title">Papps Self Master - Daily</h1>
-                <h3 className="gold-button">ANSWER DAILY QUESTIONS BELOW</h3>
-            </header>
-            <h3 className="leaderboard-heading">LEADERBOARD</h3>
-            <table className="leaderboard">
-                <thead>
-                    <tr>
-                        <th>POS</th>
-                        <th>Name</th>
-                        <th>Days Completed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((user, index) => (
-                        <tr
-                            key={user.userId}
-                            className={
-                                index === data.length - 1 ? "row-red" : ""
-                            }
-                        >
-                            <td>{index + 1}</td>
-                            <td>{user.name}</td>
-                            <td>{user.daysCompleted}</td>
+        <div className="container">
+            <div className="leaderboard-container">
+                <header className="app-header">
+                    <h1 className="app-title">Papps Self Master - Daily</h1>
+                    <h3 className="gold-button">ANSWER DAILY QUESTIONS BELOW</h3>
+                </header>
+                <h3 className="leaderboard-heading">LEADERBOARD</h3>
+                <table className="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>Name</th>
+                            <th>Days Completed</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {data.map((user, index) => (
+                            <tr
+                                key={user.userId}
+                                className={
+                                    index === data.length - 1 ? "row-red" : ""
+                                }
+                            >
+                                <td>{index + 1}</td>
+                                <td>{user.name}</td>
+                                <td>{user.daysCompleted}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
