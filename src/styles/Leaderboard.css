@@ -1,12 +1,12 @@
 /* Leaderboard.css */
 .leaderboard-container {
-    margin: 20px auto; /* Center the container horizontally */
+    margin: 20px auto;
     padding: 10px;
     background-color: #000;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Reduce the size of the leaderboard */
-    text-align: center; /* Center content inside the container */
+    max-width: 600px;
+    text-align: center;
 }
 
 .leaderboard {
@@ -19,7 +19,7 @@
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
-    color: #d1e7dd !important; /* Ensure text color is light */
+    color: #d1e7dd !important;
 }
 
 .leaderboard th {
@@ -28,23 +28,23 @@
 }
 
 .leaderboard tr {
-    color: #000 !important; /* Ensure text color is black for all rows */
+    color: #000 !important;
 }
 
 .highlight-current-user {
     font-weight: bold;
     background-color: #d1e7dd;
-    color: #000 !important; /* Ensure highlighted text is black */
+    color: #000 !important;
 }
 
 .highlight-reset {
     background-color: red;
-    color: white !important; /* Ensure reset text is white */
+    color: white !important;
 }
 
 .leaderboard-heading {
     color: #f0a500;
-    margin-bottom: 20px; /* Add space below heading */
+    margin-bottom: 20px;
 }
 
 /* New CSS for the red bottom row */
@@ -53,24 +53,8 @@
     color: #fff !important;
 }
 
-/* Shared button styles */
-.gold-button {
-    background-color: #b58d2b;
-    border: none;
-    border-radius: 25px;
-    color: #000;
-    cursor: pointer;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 20px 40px;
-    width: 80%;
-    max-width: 600px; /* Ensure both buttons have the same max-width */
-    text-align: center;
-    display: inline-block; /* Ensure buttons are inline-block */
-    box-sizing: border-box; /* Include padding in width calculation */
-    margin: 0 auto; /* Center the buttons */
-}
-
-.gold-button:hover {
-    background-color: #d4af37;
+/* Ensuring the answer-questions-button class from TaskForm.css applies here */
+.answer-questions-button {
+    width: calc(100% - 40px);
+    max-width: 600px;
 }

@@ -3,14 +3,10 @@
     background-color: #000;
     border-radius: 10px;
     box-shadow: 0 4px 8px #0000001a;
-    color: white; /* Ensuring text color is white */
+    color: white;
     margin: 0 auto;
     max-width: 600px;
     padding: 20px;
-}
-
-.form-group {
-    background-color: #000;
 }
 
 .widths {
@@ -31,13 +27,15 @@
     text-align: center;
 }
 
-.task-form td, .task-form th {
+.task-form td,
+.task-form th {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-.task-form input, .task-form label {
+.task-form input,
+.task-form label {
     color: #000;
 }
 
@@ -87,24 +85,24 @@
     align-items: center;
 }
 
-/* Shared button styles */
+/* Ensuring the buttons have the same width as the leaderboard */
+.answer-questions-button,
 .gold-button {
     background-color: #b58d2b;
     border: none;
     border-radius: 25px;
     color: #000;
     cursor: pointer;
+    display: block;
     font-size: 1.5em;
-    font-weight: bold;
+    margin: 20px auto;
     padding: 20px 40px;
-    width: 80%;
-    max-width: 600px; /* Ensure both buttons have the same max-width */
-    text-align: center;
-    display: inline-block; /* Ensure buttons are inline-block */
-    box-sizing: border-box; /* Include padding in width calculation */
-    margin: 0 auto; /* Center the buttons */
+    width: calc(100% - 40px); /* Same width as leaderboard */
+    max-width: 600px; /* Ensuring it doesn't exceed the leaderboard width */
+    font-weight: bold; /* Ensure both buttons have bold font */
 }
 
+.answer-questions-button:hover,
 .gold-button:hover {
     background-color: #d4af37;
 }

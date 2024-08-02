@@ -16,7 +16,7 @@ const TaskForm = ({ userId, storeTask, daysCompleted, taskSubmitted }) => {
     return (
         <div className="app-container">
             <form className="task-form" onSubmit={handleSubmit}>
-                <button className="answer-questions-button"> DAILY QUESTIONS</button>
+                <button className="gold-button"> DAILY QUESTIONS</button>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
                     <input className="widths"
@@ -206,7 +206,7 @@ const TaskForm = ({ userId, storeTask, daysCompleted, taskSubmitted }) => {
                         </div>
                     </div>
                 </div>
-                <button type="submit" className="answer-questions-button" disabled={taskSubmitted}>Submit</button>
+                <button type="submit" className="gold-button" disabled={taskSubmitted}>Submit</button>
             </form>
         </div>
     );

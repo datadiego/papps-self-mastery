@@ -16,7 +16,7 @@ const Leaderboard = ({ leaderboard }) => {
         <div className="leaderboard-container">
             <header className="app-header">
                 <h1 className="app-title">Papps Self Master - Daily</h1>
-                <h3 className="answer-questions-button">ANSWER DAILY QUESTIONS BELOW</h3>
+                <h3 className="gold-button">ANSWER DAILY QUESTIONS BELOW</h3>
             </header>
             <h3 className="leaderboard-heading">LEADERBOARD</h3>
             <table className="leaderboard">
