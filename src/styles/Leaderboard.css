@@ -46,3 +46,31 @@
     color: #f0a500;
     margin-bottom: 20px; /* Add space below heading */
 }
+
+/* New CSS for the red bottom row */
+.leaderboard .row-red {
+    background-color: #d32f2f;
+    color: #fff !important;
+}
+
+/* Shared button styles */
+.gold-button {
+    background-color: #b58d2b;
+    border: none;
+    border-radius: 25px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px 40px;
+    width: 80%;
+    max-width: 600px; /* Ensure both buttons have the same max-width */
+    text-align: center;
+    display: inline-block; /* Ensure buttons are inline-block */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin: 0 auto; /* Center the buttons */
+}
+
+.gold-button:hover {
+    background-color: #d4af37;
+}

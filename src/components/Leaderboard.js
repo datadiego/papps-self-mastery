@@ -2,6 +2,16 @@ import React from 'react';
 import '../styles/Leaderboard.css';
 
 const Leaderboard = ({ leaderboard }) => {
+    // Dummy data to use if no leaderboard prop is provided
+    const defaultData = [
+        { userId: 1, name: 'USER 1', daysCompleted: 100 },
+        { userId: 2, name: 'USER 2', daysCompleted: 90 },
+        { userId: 3, name: 'USER 3', daysCompleted: 80 },
+        { userId: 4, name: 'USER 4', daysCompleted: 70 },
+    ];
+
+    const data = leaderboard && leaderboard.length ? leaderboard : defaultData;
+
     return (
         <div className="leaderboard-container">
             <header className="app-header">
@@ -18,8 +28,13 @@ const Leaderboard = ({ leaderboard }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {leaderboard.map((user, index) => (
-                        <tr key={user.userId}>
+                    {data.map((user, index) => (
+                        <tr
+                            key={user.userId}
+                            className={
+                                index === data.length - 1 ? "row-red" : ""
+                            }
+                        >
                             <td>{index + 1}</td>
                             <td>{user.name}</td>
                             <td>{user.daysCompleted}</td>

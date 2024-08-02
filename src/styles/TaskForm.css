@@ -8,11 +8,12 @@
     max-width: 600px;
     padding: 20px;
 }
-.form-group{
+
+.form-group {
     background-color: #000;
 }
 
-.widths{
+.widths {
     border-collapse: collapse;
     margin-bottom: 20px;
     table-layout: auto;
@@ -21,6 +22,7 @@
     height: 40px;
     border-radius: 10px;
 }
+
 .task-form table {
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -62,10 +64,8 @@
 
 .question-box label {
     color: #000;
-    
     font-weight: 700;
     margin-bottom: 10px;
-    
 }
 
 .radio-group {
@@ -75,18 +75,36 @@
     align-content: center;
     margin: auto;
     max-width: 20%;
-    
 }
 
 .radio-group label {
-    
     color: #000;
     display: flex;
-    
 }
 
 .radio-group input {
     margin-right: 5px;
     align-items: center;
-    
+}
+
+/* Shared button styles */
+.gold-button {
+    background-color: #b58d2b;
+    border: none;
+    border-radius: 25px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px 40px;
+    width: 80%;
+    max-width: 600px; /* Ensure both buttons have the same max-width */
+    text-align: center;
+    display: inline-block; /* Ensure buttons are inline-block */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin: 0 auto; /* Center the buttons */
+}
+
+.gold-button:hover {
+    background-color: #d4af37;
 }
