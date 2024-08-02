@@ -37,7 +37,8 @@ code {
 }
 
 /* Button Styles */
-.answer-questions-button {
+.answer-questions-button,
+.daily-questions-button {
   background-color: #b58d2b;
   border: none;
   border-radius: 25px;
@@ -45,11 +46,13 @@ code {
   cursor: pointer;
   display: block;
   font-size: 1.5em;
+  font-weight: bold;  /* Ensure bold font weight */
   margin: 20px auto;
   padding: 20px 40px;
   width: 80%;
 }
 
-.answer-questions-button:hover {
+.answer-questions-button:hover,
+.daily-questions-button:hover {
   background-color: #d4af37;
 }
