@@ -1,11 +1,10 @@
 /* CountdownTimer.css */
 .countdown-timer {
     background-color: #000;
-    border: 5px solid #fff;
+    /* border: 5px solid #fff; */ /* Commented out to remove the white border */
     border-radius: 10px;
     display: inline-block;
     font-family: 'Courier New', Courier, monospace;
-    
     padding: 1px;
     text-align: center;
     color: #f0a500;
