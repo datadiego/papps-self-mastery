@@ -3,10 +3,7 @@ import './styles/App.css';
 import CountdownTimer from './components/CountdownTimer';
 import TaskForm from './components/TaskForm';
 import Leaderboard from './components/Leaderboard';
-
-const generateUserId = () => {
-    return 'user_' + Math.floor(Math.random() * 1000000);
-};
+import generateUserId from './utils/generateUserId';
 
 const App = () => {
     const [userId, setUserId] = useState(localStorage.getItem('userId') || generateUserId());
@@ -22,6 +19,7 @@ const App = () => {
         const user = storedLeaderboard.find(user => user.userId === userId);
         if (user) {
             setDaysCompleted(user.daysCompleted);
+            setTaskSubmitted(true);
         }
     }, [userId]);
 
@@ -33,27 +31,26 @@ const App = () => {
             )
             : [...leaderboard, { userId, name: task.name, daysCompleted: 1 }];
 
+        updatedLeaderboard.sort((a, b) => b.daysCompleted - a.daysCompleted);
         setLeaderboard(updatedLeaderboard);
         localStorage.setItem('leaderboard', JSON.stringify(updatedLeaderboard));
         setStopTimerForUser(true);
         setDaysCompleted(prevDaysCompleted => prevDaysCompleted + 1);
-        setTaskSubmitted(true); // Disable form after task submission
+        setTaskSubmitted(true);
     };
 
     const clearTasks = () => {
         setStopTimerForUser(false);
         setDaysCompleted(0);
-        const updatedLeaderboard = leaderboard.map(user =>
-            user.userId === userId ? { ...user, daysCompleted: 0 } : user
-        );
+        const updatedLeaderboard = leaderboard.filter(user => user.userId !== userId);
         setLeaderboard(updatedLeaderboard);
         localStorage.setItem('leaderboard', JSON.stringify(updatedLeaderboard));
+        setTaskSubmitted(false);
     };
 
     const handleDayEnd = () => {
         setStopTimerForUser(false);
-        setDaysCompleted(0);
-        setTaskSubmitted(false); // Re-enable form when new day starts
+        setTaskSubmitted(false);
     };
 
     return (
@@ -63,7 +60,7 @@ const App = () => {
             </header>
             <CountdownTimer stopTimerForUser={stopTimerForUser} onDayEnd={handleDayEnd} />
             <div className="content">
-                <Leaderboard leaderboard={leaderboard} />
+                <Leaderboard userId={userId} />
                 <TaskForm userId={userId} storeTask={storeTask} daysCompleted={daysCompleted} taskSubmitted={taskSubmitted} />
                 <button onClick={clearTasks}>Clear Tasks</button>
             </div>

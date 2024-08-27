@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Leaderboard.css';
 
-const Leaderboard = ({ leaderboard }) => {
-    // Dummy data to use if no leaderboard prop is provided
-    const defaultData = [
-        { userId: 1, name: 'USER 1', daysCompleted: 100 },
-        { userId: 2, name: 'USER 2', daysCompleted: 90 },
-        { userId: 3, name: 'USER 3', daysCompleted: 80 },
-        { userId: 4, name: 'USER 4', daysCompleted: 70 },
-    ];
+const Leaderboard = ({ userId }) => {
+    const [leaderboardData, setLeaderboardData] = useState([]);
 
-    const data = leaderboard && leaderboard.length ? leaderboard : defaultData;
+    useEffect(() => {
+        const fetchLeaderboardData = () => {
+            const storedData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+            setLeaderboardData(storedData);
+        };
+
+        fetchLeaderboardData();
+        const intervalId = setInterval(fetchLeaderboardData, 60000);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <div className="container">
@@ -29,12 +33,10 @@ const Leaderboard = ({ leaderboard }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((user, index) => (
+                        {leaderboardData.map((user, index) => (
                             <tr
                                 key={user.userId}
-                                className={
-                                    index === data.length - 1 ? "row-red" : ""
-                                }
+                                className={`${index === leaderboardData.length - 1 ? "row-red" : ""} ${user.userId === userId ? "current-user" : ""}`}
                             >
                                 <td>{index + 1}</td>
                                 <td>{user.name}</td>
