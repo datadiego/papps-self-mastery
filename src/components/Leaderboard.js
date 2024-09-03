@@ -1,21 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/Leaderboard.css';
 
-const Leaderboard = ({ userId }) => {
-    const [leaderboardData, setLeaderboardData] = useState([]);
-
-    useEffect(() => {
-        const fetchLeaderboardData = () => {
-            const storedData = JSON.parse(localStorage.getItem('leaderboard')) || [];
-            setLeaderboardData(storedData);
-        };
-
-        fetchLeaderboardData();
-        const intervalId = setInterval(fetchLeaderboardData, 60000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
+const Leaderboard = ({ leaderboard, userId }) => {
     return (
         <div className="container">
             <div className="leaderboard-container">
@@ -33,10 +19,10 @@ const Leaderboard = ({ userId }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {leaderboardData.map((user, index) => (
+                        {leaderboard.map((user, index) => (
                             <tr
                                 key={user.userId}
-                                className={`${index === leaderboardData.length - 1 ? "row-red" : ""} ${user.userId === userId ? "current-user" : ""}`}
+                                className={`${index === leaderboard.length - 1 ? "row-red" : ""} ${user.userId === userId ? "current-user" : ""}`}
                             >
                                 <td>{index + 1}</td>
                                 <td>{user.name}</td>
