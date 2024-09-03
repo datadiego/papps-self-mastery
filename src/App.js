@@ -4,10 +4,11 @@ import './styles/App.css';
 import CountdownTimer from './components/CountdownTimer';
 import TaskForm from './components/TaskForm';
 import Leaderboard from './components/Leaderboard';
+import ErrorBoundary from './components/ErrorBoundary';
 import generateUserId from './utils/generateUserId';
 
-const JSONBIN_BIN_ID = '66d669a2acd3cb34a87da571';
-const JSONBIN_API_KEY = '$2a$10$Ni3ejmOdyLfousp.sJ.hmOb23b7EC6KmDuj3nelQH3CRG92rfCW/a';
+const JSONBIN_BIN_ID = process.env.REACT_APP_JSONBIN_BIN_ID;
+const JSONBIN_API_KEY = process.env.REACT_APP_JSONBIN_API_KEY;
 
 const App = () => {
     const [userId, setUserId] = useState(localStorage.getItem('userId') || generateUserId());
@@ -23,6 +24,10 @@ const App = () => {
 
     const fetchLeaderboard = async () => {
         try {
+            if (!JSONBIN_BIN_ID || !JSONBIN_API_KEY) {
+                console.error('JSONBin credentials are missing');
+                return;
+            }
             const response = await axios.get(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
                 headers: {
                     'X-Master-Key': JSONBIN_API_KEY
@@ -42,6 +47,10 @@ const App = () => {
 
     const updateLeaderboard = async (updatedLeaderboard) => {
         try {
+            if (!JSONBIN_BIN_ID || !JSONBIN_API_KEY) {
+                console.error('JSONBin credentials are missing');
+                return;
+            }
             await axios.put(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`, updatedLeaderboard, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,17 +94,19 @@ const App = () => {
     };
 
     return (
-        <div className="app-container">
-            <header className="app-header">
-                <h1 className="app-title">Papps Self Master - Daily</h1>
-            </header>
-            <CountdownTimer stopTimerForUser={stopTimerForUser} onDayEnd={handleDayEnd} />
-            <div className="content">
-                <Leaderboard leaderboard={leaderboard} userId={userId} />
-                <TaskForm userId={userId} storeTask={storeTask} daysCompleted={daysCompleted} taskSubmitted={taskSubmitted} />
-                <button onClick={clearTasks}>Clear Tasks</button>
+        <ErrorBoundary>
+            <div className="app-container">
+                <header className="app-header">
+                    <h1 className="app-title">Papps Self Master - Daily</h1>
+                </header>
+                <CountdownTimer stopTimerForUser={stopTimerForUser} onDayEnd={handleDayEnd} />
+                <div className="content">
+                    <Leaderboard leaderboard={leaderboard} userId={userId} />
+                    <TaskForm userId={userId} storeTask={storeTask} daysCompleted={daysCompleted} taskSubmitted={taskSubmitted} />
+                    <button onClick={clearTasks}>Clear Tasks</button>
+                </div>
             </div>
-        </div>
+        </ErrorBoundary>
     );
 };
 
